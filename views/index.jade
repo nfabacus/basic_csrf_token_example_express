@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} #{csrfToken}
+  form(method='POST' action='/submit')
+    input(type='hidden' name='csrfToken' value=csrfToken)
+    label(for="username") Username
+    input(type='text' name='username')
+    button(type='submit') Submit
