@@ -5,3 +5,16 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
+
+  script.
+    const csrfToken = "#{csrf_token}";
+    fetch('/api', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'csrfToken': csrfToken
+      },
+      body: JSON.stringify({
+        'message': 'message to server!'
+      })
+    }).then(res => res.json()).then(result => { console.log('result >>', result); });

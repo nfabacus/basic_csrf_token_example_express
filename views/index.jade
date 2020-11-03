@@ -2,9 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title} #{csrfToken}
+  p Welcome to #{title} #{csrf_token}
   form(method='POST' action='/submit')
-    input(type='hidden' name='csrfToken' value=csrfToken)
+    input(type='hidden' name='csrfToken' value=csrf_token)
     label(for="username") Username
     input(type='text' name='username')
     button(type='submit') Submit
